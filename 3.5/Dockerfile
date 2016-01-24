@@ -17,9 +17,9 @@ RUN warpdrive-init
 ENV PYTHONHASHSEED=random PATH=/usr/local/python/bin:$PATH
 
 LABEL io.k8s.description="S2I builder for Python web applications." \
-      io.k8s.display-name="Python 2.7 (Warp Drive)" \
+      io.k8s.display-name="Python 3.5 (Warp Drive)" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,python,python27,warpdrive,warpdrive-python27" \
+      io.openshift.tags="builder,python,python35,warpdrive,warpdrive-python35" \
       io.openshift.s2i.scripts-url="image:///usr/local/s2i/bin"
 
 ENV STI_SCRIPTS_PATH=/usr/local/s2i/bin
