@@ -3,8 +3,8 @@ FROM grahamdumpleton/warp0-base-debian8
 MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
 ENV PYTHON_VERSION=3.5.1 \
-    MOD_WSGI_VERSION=4.4.21 \
-    WARPDRIVE_VERSION=0.1.0
+    MOD_WSGI_VERSION=4.4.22 \
+    WARPDRIVE_VERSION=0.2.0
 
 RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive-python/tar.gz/$WARPDRIVE_VERSION \
     && tar -xC /usr/local --strip-components=1 --exclude README.md -f /tmp/warpdrive.tar.gz \
