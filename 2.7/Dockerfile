@@ -4,7 +4,7 @@ MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
 ENV PYTHON_VERSION=2.7.11 \
     MOD_WSGI_VERSION=4.4.22 \
-    WARPDRIVE_VERSION=0.5.1
+    WARPDRIVE_VERSION=0.6.2
 
 RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive-python/tar.gz/$WARPDRIVE_VERSION \
     && tar -xC /usr/local --strip-components=1 --exclude README.md -f /tmp/warpdrive.tar.gz \
