@@ -1,0 +1,48 @@
+{
+    "kind": "ImageStream",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "warp0-python-debian8"
+    },
+    "spec": {
+        "tags": [
+            {
+                "name": "2.7",
+                "annotations": {
+                    "description": "Build and run Python 2.7 applications",
+                    "iconClass": "icon-python",
+                    "sampleRepo": "https://github.com/openshift/django-ex.git",
+                    "supports": "python:2.7,python",
+                    "tags": "builder,python,warpdrive",
+                    "version": "2.7"
+                },
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "grahamdumpleton/warp0-python27-debian8:latest"
+                }
+            },
+            {
+                "name": "3.5",
+                "annotations": {
+                    "description": "Build and run Python 3.5 applications",
+                    "iconClass": "icon-python",
+                    "sampleRepo": "https://github.com/openshift/django-ex.git",
+                    "supports": "python:3.5,python",
+                    "tags": "builder,python,warpdrive",
+                    "version": "3.5"
+                },
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "grahamdumpleton/warp0-python35-debian8:latest"
+                }
+            },
+            {
+                "name": "latest",
+                "from": {
+                    "kind": "ImageStreamTag",
+                    "name": "3.5"
+                }
+            }
+        ]
+    }
+}
