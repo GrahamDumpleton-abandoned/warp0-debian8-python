@@ -11,7 +11,7 @@
                 "annotations": {
                     "description": "Build and run Python 2.7 applications",
                     "iconClass": "icon-python",
-                    "sampleRepo": "https://github.com/openshift/django-ex.git",
+                    "sampleRepo": "https://github.com/GrahamDumpleton/wsgi-hello-world.git",
                     "supports": "python:2.7,python",
                     "tags": "builder,python,warpdrive",
                     "version": "2.7"
@@ -26,7 +26,7 @@
                 "annotations": {
                     "description": "Build and run Python 3.5 applications",
                     "iconClass": "icon-python",
-                    "sampleRepo": "https://github.com/openshift/django-ex.git",
+                    "sampleRepo": "https://github.com/GrahamDumpleton/wsgi-hello-world.git",
                     "supports": "python:3.5,python",
                     "tags": "builder,python,warpdrive",
                     "version": "3.5"
