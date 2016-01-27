@@ -1,4 +1,4 @@
-# warp0-python-debian8
+# warp0-debian8-python
 
 This project contains Docker images for building and deploying Python web
 applications based around the [warpdrive](https://github.com/GrahamDumpleton/warpdrive-python)
@@ -11,8 +11,8 @@ the major version of ``warpdrive``.
 
 Pre-built versions of the Docker images can be found on Docker Hub as:
 
-  * [grahamdumpleton/warp0-python27-debian8](https://hub.docker.com/r/grahamdumpleton/warp0-python27-debian8/)
-  * [grahamdumpleton/warp0-python35-debian8](https://hub.docker.com/r/grahamdumpleton/warp0-python35-debian8/)
+  * [grahamdumpleton/warp0-debian8-python27](https://hub.docker.com/r/grahamdumpleton/warp0-debian8-python27/)
+  * [grahamdumpleton/warp0-debian8-python35](https://hub.docker.com/r/grahamdumpleton/warp0-debian8-python35/)
 
 The Docker images have been enabled for use with [Source to Image](https://github.com/openshift/source-to-image)
 (S2I) and can be used with OpenShift.

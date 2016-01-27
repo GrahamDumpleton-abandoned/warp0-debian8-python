@@ -18,7 +18,7 @@
                 },
                 "from": {
                     "kind": "DockerImage",
-                    "name": "grahamdumpleton/warp0-python27-debian8:latest"
+                    "name": "grahamdumpleton/warp0-debian8-python27:latest"
                 }
             },
             {
@@ -33,7 +33,7 @@
                 },
                 "from": {
                     "kind": "DockerImage",
-                    "name": "grahamdumpleton/warp0-python35-debian8:latest"
+                    "name": "grahamdumpleton/warp0-debian8-python35:latest"
                 }
             },
             {

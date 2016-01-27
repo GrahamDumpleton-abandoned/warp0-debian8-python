@@ -1,4 +1,4 @@
-FROM grahamdumpleton/warp0-base-debian8
+FROM grahamdumpleton/warp0-debian8-base
 
 MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
