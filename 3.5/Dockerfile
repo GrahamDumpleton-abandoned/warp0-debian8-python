@@ -4,7 +4,7 @@ MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
 ENV PYTHON_VERSION=3.5.1 \
     MOD_WSGI_VERSION=4.4.22 \
-    WARPDRIVE_VERSION=0.8.0
+    WARPDRIVE_VERSION=0.9.3
 
 RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive-python/tar.gz/$WARPDRIVE_VERSION \
     && tar -xC /usr/local --strip-components=1 --exclude README.md -f /tmp/warpdrive.tar.gz \
@@ -12,7 +12,7 @@ RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleto
 
 ENV PATH=/usr/local/warpdrive/bin:$PATH
 
-RUN warpdrive-init
+RUN warpdrive init
 
 ENV PYTHONHASHSEED=random PATH=/usr/local/python/bin:$PATH
 
@@ -30,5 +30,5 @@ USER 1001
 
 EXPOSE 8080
 
-ENTRYPOINT [ "warpdrive-exec" ]
-CMD [ "warpdrive-start" ]
+ENTRYPOINT [ "warpdrive", "exec" ]
+CMD [ "warpdrive", "start" ]
