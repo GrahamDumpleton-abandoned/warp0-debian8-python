@@ -2,7 +2,7 @@
     "kind": "ImageStream",
     "apiVersion": "v1",
     "metadata": {
-        "name": "warp0-python-debian8"
+        "name": "warp0-debian8-python"
     },
     "spec": {
         "tags": [
