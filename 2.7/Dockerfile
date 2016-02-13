@@ -2,9 +2,9 @@ FROM grahamdumpleton/warp0-debian8-base
 
 MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
-ENV PYTHON_VERSION=2.7.11 \
-    MOD_WSGI_VERSION=4.4.22 \
-    WARPDRIVE_VERSION=0.11.1
+ENV WARPDRIVE_VERSION=0.13.6 \
+    PYTHON_VERSION=2.7.11 \
+    MOD_WSGI_VERSION=4.4.22
 
 RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive-python/tar.gz/$WARPDRIVE_VERSION \
     && tar -xC /usr/local --strip-components=1 --exclude README.md -f /tmp/warpdrive.tar.gz \
@@ -14,7 +14,12 @@ ENV PATH=/usr/local/warpdrive/bin:$PATH
 
 RUN warpdrive init
 
-ENV PYTHONHASHSEED=random PATH=/usr/local/python/bin:$PATH
+ENV BASH_ENV=/usr/local/warpdrive/etc/shell-init \
+    ENV=/usr/local/warpdrive/etc/shell-init \
+    PROMPT_COMMAND=". /usr/local/warpdrive/etc/shell-init" \
+    STI_SCRIPTS_PATH=/usr/local/s2i/bin \
+    PATH=/usr/local/python/bin:$PATH \
+    PYTHONHASHSEED=random
 
 LABEL io.k8s.description="S2I builder for Python web applications." \
       io.k8s.display-name="Python 2.7 (Warp Drive)" \
@@ -22,9 +27,7 @@ LABEL io.k8s.description="S2I builder for Python web applications." \
       io.openshift.tags="builder,python,python27,warpdrive,warpdrive-python27" \
       io.openshift.s2i.scripts-url="image:///usr/local/s2i/bin"
 
-ENV STI_SCRIPTS_PATH=/usr/local/s2i/bin
-
-WORKDIR /app
+WORKDIR /opt/warpdrive
 
 USER 1001
 
