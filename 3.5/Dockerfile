@@ -27,7 +27,7 @@ LABEL io.k8s.description="S2I builder for Python web applications." \
       io.openshift.tags="builder,python,python35,warpdrive,warpdrive-python35" \
       io.openshift.s2i.scripts-url="image:///usr/local/s2i/bin"
 
-WORKDIR /app
+WORKDIR /opt/warpdrive
 
 USER 1001
 
