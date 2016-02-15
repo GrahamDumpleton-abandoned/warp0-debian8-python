@@ -2,12 +2,12 @@ FROM grahamdumpleton/warp0-debian8-base
 
 MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
-ENV WARPDRIVE_VERSION=0.13.7 \
+ENV WARPDRIVE_VERSION=0.14.0 \
 ENV PYTHON_VERSION=3.5.1 \
     MOD_WSGI_VERSION=4.4.22
 
-RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive-python/tar.gz/$WARPDRIVE_VERSION \
-    && tar -xC /usr/local --strip-components=1 --exclude README.md -f /tmp/warpdrive.tar.gz \
+RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive/tar.gz/$WARPDRIVE_VERSION \
+    && tar -xC /usr/local --strip-components=1 -f /tmp/warpdrive.tar.gz warpdrive-$WARPDRIVE_VERSION/warpdrive warpdrive-$WARPDRIVE_VERSION/s2i \
     && rm -f /tmp/warpdrive.tar.gz 
 
 ENV PATH=/usr/local/warpdrive/bin:$PATH
