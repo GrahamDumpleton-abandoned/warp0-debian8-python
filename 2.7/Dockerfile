@@ -2,7 +2,7 @@ FROM grahamdumpleton/warp0-debian8-base
 
 MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
-ENV WARPDRIVE_VERSION=0.16.1 \
+ENV WARPDRIVE_VERSION=0.16.2 \
     PYTHON_VERSION=2.7.11 \
     MOD_WSGI_VERSION=4.4.22
 
