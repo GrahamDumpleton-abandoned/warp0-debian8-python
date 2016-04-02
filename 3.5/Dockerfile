@@ -12,9 +12,10 @@ RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleto
 
 ENV PATH=/usr/local/warpdrive/bin:$PATH
 
-RUN warpdrive init
+RUN warpdrive base debian
 
-ENV BASH_ENV=/usr/local/warpdrive/etc/shell-init \
+ENV HOME=/opt/app-root \
+    BASH_ENV=/usr/local/warpdrive/etc/shell-init \
     ENV=/usr/local/warpdrive/etc/shell-init \
     PROMPT_COMMAND=". /usr/local/warpdrive/etc/shell-init" \
     STI_SCRIPTS_PATH=/usr/local/s2i/bin \
@@ -27,7 +28,7 @@ LABEL io.k8s.description="S2I builder for Python web applications." \
       io.openshift.tags="builder,python,python35,warpdrive,warpdrive-python35" \
       io.openshift.s2i.scripts-url="image:///usr/local/s2i/bin"
 
-WORKDIR /opt/warpdrive
+WORKDIR /opt/app-root/src
 
 USER 1001
 
