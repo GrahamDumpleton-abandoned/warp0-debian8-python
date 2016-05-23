@@ -26,7 +26,7 @@ LABEL io.k8s.description="S2I builder for Python web applications." \
       io.k8s.display-name="Python 2.7 (Warp Drive)" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,python,python27,warpdrive,warpdrive-python27" \
-      io.openshift.s2i.scripts-url="image:///opt/apt-root/s2i/bin"
+      io.openshift.s2i.scripts-url="image:///usr/local/s2i/bin"
 
 WORKDIR /opt/app-root/src
 
