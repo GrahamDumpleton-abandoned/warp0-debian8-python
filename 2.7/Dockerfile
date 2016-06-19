@@ -4,21 +4,25 @@ MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
 ENV WARPDRIVE_VERSION=0.20.1 \
     PYTHON_VERSION=2.7.11 \
-    MOD_WSGI_VERSION=4.5.0
+    MOD_WSGI_VERSION=4.5.2
 
-RUN curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive/tar.gz/$WARPDRIVE_VERSION \
-    && tar -xC /usr/local --strip-components=1 -f /tmp/warpdrive.tar.gz warpdrive-$WARPDRIVE_VERSION/warpdrive warpdrive-$WARPDRIVE_VERSION/s2i \
+ENV WARPDRIVE_APP_ROOT=/opt/app-root \
+    WARPDRIVE_SRC_ROOT=/opt/app-root/src
+
+RUN mkdir -p ${WARPDRIVE_APP_ROOT} \
+    && curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive/tar.gz/$WARPDRIVE_VERSION \
+    && tar -xC ${WARPDRIVE_APP_ROOT} --strip-components=1 -f /tmp/warpdrive.tar.gz warpdrive-$WARPDRIVE_VERSION/warpdrive warpdrive-$WARPDRIVE_VERSION/s2i \
     && rm -f /tmp/warpdrive.tar.gz 
 
-ENV PATH=/usr/local/warpdrive/bin:$PATH
+ENV PATH=${WARPDRIVE_APP_ROOT}/warpdrive/bin:$PATH
 
 RUN warpdrive base debian
 
-ENV HOME=/opt/app-root \
-    BASH_ENV=/usr/local/warpdrive/etc/shell-init \
-    ENV=/usr/local/warpdrive/etc/shell-init \
-    PROMPT_COMMAND=". /usr/local/warpdrive/etc/shell-init" \
-    STI_SCRIPTS_PATH=/usr/local/s2i/bin \
+ENV HOME=${WARPDRIVE_APP_ROOT} \
+    BASH_ENV=${WARPDRIVE_APP_ROOT}/warpdrive/etc/shell-init \
+    ENV=${WARPDRIVE_APP_ROOT}/warpdrive/etc/shell-init \
+    PROMPT_COMMAND=". ${WARPDRIVE_APP_ROOT}/warpdrive/etc/shell-init" \
+    STI_SCRIPTS_PATH=${WARPDRIVE_APP_ROOT}/s2i/bin \
     PATH=/usr/local/python/bin:$PATH \
     PYTHONHASHSEED=random
 
@@ -26,9 +30,9 @@ LABEL io.k8s.description="S2I builder for Python web applications." \
       io.k8s.display-name="Python 2.7 (Warp Drive)" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,python,python27,warpdrive,warpdrive-python27" \
-      io.openshift.s2i.scripts-url="image:///usr/local/s2i/bin"
+      io.openshift.s2i.scripts-url="image://${WARPDRIVE_APP_ROOT}/s2i/bin"
 
-WORKDIR /opt/app-root/src
+WORKDIR ${WARPDRIVE_SRC_ROOT}
 
 USER 1001
 
