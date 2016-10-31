@@ -24,7 +24,7 @@ ENV HOME=${WARPDRIVE_APP_ROOT} \
     ENV=${WARPDRIVE_APP_ROOT}/warpdrive/etc/shell-init \
     PROMPT_COMMAND=". ${WARPDRIVE_APP_ROOT}/warpdrive/etc/shell-init" \
     STI_SCRIPTS_PATH=${WARPDRIVE_S2I_ROOT}/bin \
-    PATH=/usr/local/python/bin:$PATH \
+    PATH=${WARPDRIVE_APP_ROOT}/bin:/usr/local/python/bin:$PATH \
     PYTHONHASHSEED=random
 
 LABEL io.k8s.description="S2I builder for Python web applications." \
