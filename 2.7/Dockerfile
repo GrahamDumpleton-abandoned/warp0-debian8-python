@@ -4,7 +4,7 @@ MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
 ENV WARPDRIVE_VERSION=0.26.2 \
     PYTHON_VERSION=2.7.12 \
-    MOD_WSGI_VERSION=4.5.7
+    MOD_WSGI_VERSION=4.5.8
 
 ENV WARPDRIVE_APP_ROOT=/opt/app-root \
     WARPDRIVE_SRC_ROOT=/opt/app-root/src \
