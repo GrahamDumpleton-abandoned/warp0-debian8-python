@@ -3,8 +3,8 @@ FROM grahamdumpleton/warp0-debian8-base
 MAINTAINER Graham Dumpleton <Graham.Dumpleton@gmail.com>
 
 ENV WARPDRIVE_VERSION=0.26.4 \
-    PYTHON_VERSION=3.5.2 \
-    MOD_WSGI_VERSION=4.5.12
+    PYTHON_VERSION=3.5.3 \
+    MOD_WSGI_VERSION=4.5.14
 
 ENV WARPDRIVE_APP_ROOT=/opt/app-root \
     WARPDRIVE_SRC_ROOT=/opt/app-root/src \
