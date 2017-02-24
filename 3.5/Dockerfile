@@ -10,6 +10,9 @@ ENV WARPDRIVE_APP_ROOT=/opt/app-root \
     WARPDRIVE_SRC_ROOT=/opt/app-root/src \
     WARPDRIVE_S2I_ROOT=/opt/app-root/s2i
 
+ENV PYTHONIOENCODING=UTF-8 \
+    PYTHONUNBUFFERED=1
+
 RUN mkdir -p ${WARPDRIVE_APP_ROOT} \
     && curl -SL -o /tmp/warpdrive.tar.gz https://codeload.github.com/GrahamDumpleton/warpdrive/tar.gz/$WARPDRIVE_VERSION \
     && tar -xC ${WARPDRIVE_APP_ROOT} --strip-components=1 -f /tmp/warpdrive.tar.gz warpdrive-$WARPDRIVE_VERSION/warpdrive warpdrive-$WARPDRIVE_VERSION/s2i \
